@@ -1,31 +1,26 @@
-import Head from "next/head";
-import Image from "next/image";
+import { MainLayout } from "../components/layout/MainLayout";
 import Link from "next/link";
-import { Navbar } from "../components/Navbar";
-import styles from "../styles/Home.module.css";
+import { DarkLayout } from "../components/layout/DarkLayout";
 
-export default function About() {
+export default function AboutPage() {
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>About - Jan Pierre</title>
-        <meta name="description" content="Home page" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+      <h1>About page</h1>
+      <h1 className={"title"}>
+        Ir a <Link href="/">Home</Link>
+      </h1>
 
-      <Navbar />
-
-      <main className={styles.main}>
-        <h1>About page</h1>
-        <h1 className={styles.title}>
-          Ir a <Link href="/">Home</Link>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{" "}
-          <code className={styles.code}>pages/about.js</code>
-        </p>
-      </main>
-    </div>
+      <p className={"description"}>
+        Get started by editing <code className={"code"}>pages/about.js</code>
+      </p>
+    </>
   );
 }
+
+AboutPage.getLayout = function getLayout(page) {
+  return (
+    <MainLayout>
+      <DarkLayout>{page}</DarkLayout>
+    </MainLayout>
+  );
+};
