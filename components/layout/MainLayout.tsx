@@ -1,8 +1,13 @@
 import styles from "./MainLayout.module.css";
 import { Navbar } from "../Navbar";
 import Head from "next/head";
+import { FC } from "react";
 
-export const MainLayout = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+}
+
+export const MainLayout: FC<Props> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Head>
